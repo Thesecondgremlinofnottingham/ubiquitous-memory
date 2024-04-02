@@ -5,35 +5,11 @@
 body {
   background-color: black;
 }
-
-canvas {
-  border: 1px solid white;
-}
-
-h2, canvas {
-  color: white;
-}
-
-button {
-  background-color: white;
-  color: black;
-  border: 2px solid black;
-  padding: 5px 10px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-button:active {
-  background-color: black;
-  color: white;
-  border: 2px solid white;
-}
-  
 </style>
 </head>
 <body>
 
-  <iframe src="https://www.youtube.com/embed/sH5ohcGnRm0" height="2100" width="1500" title="Youtube but in a box"></iframe>
+  <iframe src="https://www.youtube.com/embed/sH5ohcGnRm0" height="800" width="1300" title="Youtube but in a box"></iframe>
 
 
 
@@ -41,42 +17,6 @@ button:active {
 
   
   
-  
-  <button id="myButton">Dark Mode</button>
-<script>
-
-  // Add a click event listener to the button
-var button = document.getElementById("myButton");
-button.addEventListener("click", function() {
-  // Check the current background color of the body
-  if (document.body.style.backgroundColor == "white") {
-    // Change the background color of the body
-    document.body.style.backgroundColor = "black";
-    document.body.style.color = "white";
-
-
-    // Change the color of the text
-    document.querySelector("h2").style.color = "white";
-
-    // Change the appearance of the button
-    button.style.backgroundColor = "white";
-    button.style.color = "black";
-    button.innerText = "Dark Mode";
-  } else {
-    // Change the background color of the body
-    document.body.style.backgroundColor = "white";
-    document.body.style.color = "black";
-
-    // Change the color of the text
-    document.querySelector("h2").style.color = "black";
-
-    // Change the appearance of the button
-    button.style.backgroundColor = "black";
-    button.style.color = "white";
-    button.innerText = "Light Mode";
-  }
-});
-</script>
 
 </body>
 </html>
