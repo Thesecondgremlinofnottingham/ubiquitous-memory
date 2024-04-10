@@ -10,9 +10,9 @@
       background-color: black;
     }
 
-   .section {
+  .section {
       height: 100vh;
-      display: flex;
+      display: none;
       justify-content: center;
       align-items: center;
       color: white;
@@ -34,11 +34,23 @@
   </div>
 
   <nav>
-    <a href="#section1">Section 1</a> |
-    <a href="#section2">Section 2</a> |
-    <a href="#section3">Section 3</a>
+    <a href="#" onclick="showSection('section1')">Section 1</a> |
+    <a href="#" onclick="showSection('section2')">Section 2</a> |
+    <a href="#" onclick="showSection('section3')">Section 3</a>
   </nav>
 
   <iframe src="https://www.youtube.com/embed/sH5ohcGnRm0" style="border:none;" height="100" width="100" title="Youtube but in a small box"></iframe>
+
+  <script>
+    function showSection(sectionId) {
+      // Hide all sections
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => section.style.display = 'none');
+
+      // Show the selected section
+      const selectedSection = document.getElementById(sectionId);
+      selectedSection.style.display = 'flex';
+    }
+  </script>
 </body>
 </html>
