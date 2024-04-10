@@ -31,37 +31,58 @@
       display: flex; /* Display the navigation bar as a flex container */
       justify-content: space-around; /* Distribute the links evenly across the navigation bar */
     }
+
+  nav ul {
+      list-style-type: none; /* Remove the bullet points from the dropdown menu */
+      padding: 0; /* Remove the padding from the dropdown menu */
+      margin: 0; /* Remove the margin from the dropdown menu */
+      position: relative; /* Position the dropdown menu relative to the navigation bar */
+    }
+
+  nav ul li {
+      float: left; /* Float the dropdown menu items horizontally */
+      position: relative; /* Position the dropdown menu items relative to the navigation bar */
+    }
+
+  nav ul li a {
+      display: block; /* Make the dropdown menu items clickable */
+      padding: 10px; /* Add padding to the dropdown menu items */
+      color: white; /* Set the text color of the dropdown menu items to white */
+    }
+
+  nav ul ul {
+      display: none; /* Hide the submenu by default */
+      position: absolute; /* Position the submenu relative to the parent menu item */
+      top: 100%; /* Position the submenu below the parent menu item */
+      left: 0; /* Position the submenu at the left of the parent menu item */
+      background-color: black; /* Set the background color of the submenu to black */
+      padding: 10px; /* Add padding to the submenu */
+    }
+
+  nav ul ul li {
+      float: none; /* Remove the float from the submenu items */
+    }
+
+  nav ul ul li a {
+      padding: 5px; /* Reduce the padding of the submenu items */
+      color: white; /* Set the text color of the submenu items to white */
+    }
+
+  nav ul li:hover > ul {
+      display: block; /* Show the submenu when the parent menu item is hovered over */
+    }
   </style>
 </head>
 <body>
   <nav>
-    <a href="#" onclick="showSection('Videos')">Videos</a> |
-    <a href="#" onclick="showSection('section2')">Section 2</a> |
-    <a href="#" onclick="showSection('section3')">Section 3</a>
-  </nav>
-
-  <div class="section" id="Videos">
-      <iframe src="https://www.youtube.com/embed/sH5ohcGnRm0" style="border:none;" height="100" width="100" title="Youtube but in a small box"></iframe>
-  </div>
-
-  <div class="section" id="section2">
- 
-  </div>
-
-  <div class="section" id="section3">
-  
-  </div>
-
-  <script>
-    function showSection(sectionId) {
-      // Hide all sections
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(section => section.style.display = 'none');
-
-      // Show the selected section
-      const selectedSection = document.getElementById(sectionId);
-      selectedSection.style.display = 'flex';
-    }
-  </script>
-</body>
-</html>
+    <ul>
+      <li><a href="#" onclick="showSection('Videos')">Videos</a>
+        <ul>
+          <li><a href="#" onclick="showSection('Video1')">Video 1</a></li>
+          <li><a href="#" onclick="showSection('Video2')">Video 2</a></li>
+          <li><a href="#" onclick="showSection('Video3')">Video 3</a></li>
+          <li><a href="#" onclick="showSection('Video4')">Video 4</a></li>
+        </ul>
+      </li>
+      <li><a href="#" onclick="showSection('section2')">Section 2</a></li>
+      <li><
