@@ -8,9 +8,11 @@
   <style>
     body {
       background-color: black;
+      position: relative;
+      padding-top: 50px; /* Add padding to the top of the body to avoid overlapping with the navigation bar */
     }
 
-  .section {
+ .section {
       height: 100vh;
       display: none;
       justify-content: center;
@@ -18,9 +20,26 @@
       color: white;
       font-size: 2rem;
     }
+
+  nav {
+      position: fixed; /* Position the navigation bar at the top of the screen */
+      top: 0; /* Position the navigation bar at the top of the screen */
+      left: 0; /* Position the navigation bar at the left of the screen */
+      width: 100%; /* Make the navigation bar take up the full width of the screen */
+      background-color: black; /* Set the background color of the navigation bar to black */
+      padding: 10px; /* Add padding to the navigation bar */
+      display: flex; /* Display the navigation bar as a flex container */
+      justify-content: space-around; /* Distribute the links evenly across the navigation bar */
+    }
   </style>
 </head>
 <body>
+  <nav>
+    <a href="#" onclick="showSection('Videos')">Videos</a> |
+    <a href="#" onclick="showSection('section2')">Section 2</a> |
+    <a href="#" onclick="showSection('section3')">Section 3</a>
+  </nav>
+
   <div class="section" id="Videos">
       <iframe src="https://www.youtube.com/embed/sH5ohcGnRm0" style="border:none;" height="100" width="100" title="Youtube but in a small box"></iframe>
   </div>
@@ -32,14 +51,6 @@
   <div class="section" id="section3">
   
   </div>
-
-  <nav>
-    <a href="#" onclick="showSection('Videos')">Videos</a> |
-    <a href="#" onclick="showSection('section2')">Section 2</a> |
-    <a href="#" onclick="showSection('section3')">Section 3</a>
-  </nav>
-
- 
 
   <script>
     function showSection(sectionId) {
