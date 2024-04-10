@@ -1,22 +1,44 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <meta name="author" content="The Second Gremlin">
-      <title>Nottingham</title> 
+<html>
+<head>
+  <meta name="author" content="The Second Gremlin">
+  <title>Nottingham</title>
 
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>      
-  body {background-color: black;}
-      </style>
-    </head>
-  <body>
-   
-      <iframe src="https://www.youtube.com/embed/sH5ohcGnRm0" style="border:none;" height="100" width="100" title="Youtube but in a small box"></iframe>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: black;
+    }
 
+   .section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="section" id="section1">
+    <h1>Section 1</h1>
+  </div>
 
+  <div class="section" id="section2">
+    <h1>Section 2</h1>
+  </div>
 
+  <div class="section" id="section3">
+    <h1>Section 3</h1>
+  </div>
 
+  <nav>
+    <a href="#section1">Section 1</a> |
+    <a href="#section2">Section 2</a> |
+    <a href="#section3">Section 3</a>
+  </nav>
 
-    
-    </body>
-  </html>
+  <iframe src="https://www.youtube.com/embed/sH5ohcGnRm0" style="border:none;" height="100" width="100" title="Youtube but in a small box"></iframe>
+</body>
+</html>
