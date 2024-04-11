@@ -8,122 +8,71 @@
   <style>
     body {
       background-color: black;
-      position: relative;
-      padding-top: 50px; /* Add padding to the top of the body to avoid overlapping with the navigation bar */
     }
 
-   .section {
-      height: 100vh;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      font-size: 2rem;
-    }
-
-    nav {
-      position: fixed; /* Position the navigation bar at the top of the screen */
-      top: 0; /* Position the navigation bar at the top of the screen */
-      left: 0; /* Position the navigation bar at the left of the screen */
-      width: 100%; /* Make the navigation bar take up the full width of the screen */
-      background-color: black; /* Set the background color of the navigation bar to black */
-      padding: 10px; /* Add padding to the navigation bar */
-      display: flex; /* Display the navigation bar as a flex container */
-      justify-content: space-around; /* Distribute the links evenly across the navigation bar */
-    }
-
-    /* Style the dropdown menu */
    .dropdown {
-      position: relative;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #f9f9f9;
+      padding: 10px;
+      border: 1px solid #ccc;
     }
 
    .dropdown select {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      background-color: black;
-      border: none;
-      color: white;
-      padding: 5px 10px;
-      cursor: pointer;
-    }
-
-   .dropdown select::-ms-expand {
-      display: none;
-    }
-
-   .dropdown ul {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      z-index: 1;
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-      display: none;
-      background-color: black;
-      border: 1px solid white;
-    }
-
-   .dropdown ul li {
-      padding: 5px 10px;
-      cursor: pointer;
-    }
-
-   .dropdown ul li:hover {
-      background-color: white;
-      color: black;
-    }
-
-    /* Show the dropdown menu when the select element is hovered over */
-   .dropdown select:hover + ul,
-   .dropdown select:focus + ul {
-      display: block;
+      margin-right: 10px;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="dropdown">
-      <select onfocus="this.size=5" onblur="this.size=1" onchange="showSection(this.value)">
-        <option value="Videos" selected>Videos</option>
-        <option value="video1">Video 1</option>
-        <option value="video2">Video 2</option>
-        <option value="video3">Video 3</option>
-      </select>
-      <ul>
-        <li value="Videos" onclick="showSection('Videos')">Videos</li>
-        <li value="video1" onclick="showSection('video1')">Video 1</li>
-        <li value="video2" onclick="showSection('video2')">Video 2</li>
-        <li value="video3" onclick="showSection('video3')">Video 3</li>
-      </ul>
-    </div> |
-    <a href="#" onclick="showSection('section2')">Section 2</a> |
-    <a href="#" onclick="showSection('section3')">Section 3</a>
-  </nav>
+  <div class="dropdown">
+    <select id="section-dropdown">
+      <option value="">Select a section</option>
+      <option value="section1">Section 1</option>
+      <option value="section2">Section 2</option>
+      <option value="section3">Section 3</option>
+      <option value="section4">Section 4</option>
+    </select>
 
-  <div class="section" id="Videos">
-      <iframe src="https://www.youtube.com/embed/sH5ohcGnRm0" style="border:none;" height="100" width="100" title="Youtube but in a small box"></iframe>
+    <select id="iframe-dropdown">
+      <option value="">Select an iframe</option>
+      <option value="iframe1">Iframe 1</option>
+      <option value="iframe2">Iframe 2</option>
+      <option value="iframe3">Iframe 3</option>
+      <option value="iframe4">Iframe 4</option>
+    </select>
   </div>
 
-  <div class="section" id="section2">
-
-  </div>
-
-  <div class="section" id="section3">
-
-  </div>
+  <iframe id="iframe" src="https://www.youtube.com/embed/sH5ohcGnRm0" style="border:none;" height="100" width="100" title="Youtube but in a small box"></iframe>
 
   <script>
-    function showSection(sectionId) {
-      // Hide all sections
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(section => section.style.display = 'none');
+    // Update the iframe source based on the selected option
+    document.getElementById('iframe-dropdown').addEventListener('change', function() {
+      var iframe = document.getElementById('iframe');
+      iframe.src = this.value;
+    });
 
-      // Show the selected section
-      const selectedSection = document.getElementById(sectionId);
-      selectedSection.style.display = 'flex';
-    }
+    // Update the iframe source based on the selected section
+    document.getElementById('section-dropdown').addEventListener('change', function() {
+      var iframe = document.getElementById('iframe');
+      switch (this.value) {
+        case 'section1':
+          iframe.src = 'https://www.example.com/section1';
+          break;
+        case 'section2':
+          iframe.src = 'https://www.example.com/section2';
+          break;
+        case 'section3':
+          iframe.src = 'https://www.example.com/section3';
+          break;
+        case 'section4':
+          iframe.src = 'https://www.example.com/section4';
+          break;
+        default:
+          iframe.src = 'https://www.youtube.com/embed/sH5ohcGnRm0';
+      }
+    });
   </script>
 </body>
 </html>
