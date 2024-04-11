@@ -10,7 +10,6 @@
 
       .selection-bar {
         background-color: #333;
-        padding: 10px;
         display: flex;
         justify-content: space-between;
       }
@@ -38,6 +37,21 @@
       .dropdown-content a:hover {background-color: #444;}
 
       .dropdown:hover .dropdown-content {display: block;}
+
+      /* Customize the link style */
+      .selection-bar a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .selection-bar a:hover {
+        text-decoration: underline;
+      }
+
+      /* Hide the sections by default */
+      .section {
+        display: none;
+      }
     </style>
   </head>
   <body>
@@ -45,28 +59,75 @@
       <div class="dropdown">
         <button class="dropbtn">Youtube videos</button>
         <div class="dropdown-content">
-          <a href="#lets game it out">LGIO</a>
-          <a href="#">Link 1.2</a>
-          <a href="#">Link 1.3</a>
+          <a href="#" onclick="showSection('Lets game it out')">LGIO</a>
+          <a href="#" onclick="showSection('section2')">Link 1.2</a>
+          <a href="#" onclick="showSection('section3')">Link 1.3</a>
         </div>
       </div>
       <div class="dropdown">
         <button class="dropbtn">Section 2</button>
         <div class="dropdown-content">
-          <a href="#">Link 2.1</a>
-          <a href="#">Link 2.2</a>
-          <a href="#">Link 2.3</a>
+          <a href="#" onclick="showSection('section4')">Link 2.1</a>
+          <a href="#" onclick="showSection('section5')">Link 2.2</a>
+          <a href="#" onclick="showSection('section6')">Link 2.3</a>
         </div>
       </div>
       <div class="dropdown">
         <button class="dropbtn">Section 3</button>
         <div class="dropdown-content">
-          <a href="#">Link 3.1</a>
-          <a href="#">Link 3.2</a>
-          <a href="#">Link 3.3</a>
+          <a href="#" onclick="showSection('section7')">Link 3.1</a>
+          <a href="#" onclick="showSection('section8')">Link 3.2</a>
+          <a href="#" onclick="showSection('section9')">Link 3.3</a>
         </div>
       </div>
     </div>
-    <!-- Add more sections here -->
-  </body>
-</html>
+    <!-- Add your sections here -->
+    <div id="Lets game it out" class="section">
+      <iframe href="https://www.youtube.com/watch?v=BvEKky9N1tQ"
+    </div>
+    <div id="section2" class="section">
+      <h1>Section 2</h1>
+      <!-- Add your content here -->
+    </div>
+    <div id="section3" class="section">
+      <h1>Section 3</h1>
+      <!-- Add your content here -->
+    </div>
+    <div id="section4" class="section">
+      <h1>Section 4</h1>
+      <!-- Add your content here -->
+    </div>
+    <div id="section5" class="section">
+      <h1>Section 5</h1>
+      <!-- Add your content here -->
+    </div>
+    <div id="section6" class="section">
+      <h1>Section 6</h1>
+      <!-- Add your content here -->
+    </div>
+    <div id="section7" class="section">
+      <h1>Section 7</h1>
+      <!-- Add your content here -->
+    </div>
+    <div id="section8" class="section">
+      <h1>Section 8</h1>
+      <!-- Add your content here -->
+    </div>
+    <div id="section9" class="section">
+      <h1>Section 9</h1>
+    </div>
+
+    <script>
+      // Function to show a section
+      function showSection(sectionId) {
+        // Hide all sections
+        var sections = document.getElementsByClassName('section');
+        for (var i = 0; i < sections.length; i++) {
+          sections[i].style.display = 'none';
+        }
+
+        // Show the selected section
+        document.getElementById(sectionId).style.display = 'block';
+      }
+    </script>
+ 
