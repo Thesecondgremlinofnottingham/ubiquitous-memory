@@ -12,7 +12,7 @@
       padding-top: 50px; /* Add padding to the top of the body to avoid overlapping with the navigation bar */
     }
 
- .section {
+    .section {
       height: 100vh;
       display: none;
       justify-content: center;
@@ -21,7 +21,7 @@
       font-size: 2rem;
     }
 
-  nav {
+    nav {
       position: fixed; /* Position the navigation bar at the top of the screen */
       top: 0; /* Position the navigation bar at the top of the screen */
       left: 0; /* Position the navigation bar at the left of the screen */
@@ -32,57 +32,72 @@
       justify-content: space-around; /* Distribute the links evenly across the navigation bar */
     }
 
-  nav ul {
-      list-style-type: none; /* Remove the bullet points from the dropdown menu */
-      padding: 0; /* Remove the padding from the dropdown menu */
-      margin: 0; /* Remove the margin from the dropdown menu */
-      position: relative; /* Position the dropdown menu relative to the navigation bar */
+    /* Style the dropdown menu */
+    .dropdown {
+      position: relative;
     }
 
-  nav ul li {
-      float: left; /* Float the dropdown menu items horizontally */
-      position: relative; /* Position the dropdown menu items relative to the navigation bar */
+    .dropdown select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-color: black;
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      cursor: pointer;
     }
 
-  nav ul li a {
-      display: block; /* Make the dropdown menu items clickable */
-      padding: 10px; /* Add padding to the dropdown menu items */
-      color: white; /* Set the text color of the dropdown menu items to white */
+    .dropdown select::-ms-expand {
+      display: none;
     }
 
-  nav ul ul {
-      display: none; /* Hide the submenu by default */
-      position: absolute; /* Position the submenu relative to the parent menu item */
-      top: 100%; /* Position the submenu below the parent menu item */
-      left: 0; /* Position the submenu at the left of the parent menu item */
-      background-color: black; /* Set the background color of the submenu to black */
-      padding: 10px; /* Add padding to the submenu */
+    .dropdown ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: none;
+      background-color: black;
+      border: 1px solid white;
     }
 
-  nav ul ul li {
-      float: none; /* Remove the float from the submenu items */
+    .dropdown ul li {
+      padding: 5px 10px;
+      cursor: pointer;
     }
 
-  nav ul ul li a {
-      padding: 5px; /* Reduce the padding of the submenu items */
-      color: white; /* Set the text color of the submenu items to white */
+    .dropdown ul li:hover {
+      background-color: white;
+      color: black;
     }
 
-  nav ul li:hover > ul {
-      display: block; /* Show the submenu when the parent menu item is hovered over */
+    /* Show the dropdown menu when the select element is hovered over */
+    .dropdown select:hover + ul,
+    .dropdown select:focus + ul {
+      display: block;
     }
   </style>
 </head>
 <body>
   <nav>
-    <ul>
-      <li><a href="#" onclick="showSection('Videos')">Videos</a>
-        <ul>
-          <li><a href="#" onclick="showSection('Video1')">Video 1</a></li>
-          <li><a href="#" onclick="showSection('Video2')">Video 2</a></li>
-          <li><a href="#" onclick="showSection('Video3')">Video 3</a></li>
-          <li><a href="#" onclick="showSection('Video4')">Video 4</a></li>
-        </ul>
-      </li>
-      <li><a href="#" onclick="showSection('section2')">Section 2</a></li>
-      <li><
+    <div class="dropdown">
+      <select onfocus="this.size=5" onblur="this.size=1" onchange="showSection(this.value)">
+        <option value="Videos" selected>Videos</option>
+        <option value="video1">Video 1</option>
+        <option value="video2">Video 2</option>
+        <option value="video3">Video 3</option>
+      </select>
+      <ul>
+        <li value="Videos" onclick="showSection('Videos')">Videos</li>
+        <li value="video1" onclick="showSection('video1')">Video 1</li>
+        <li value="video2" onclick="showSection('video2')">Video 2</li>
+        <li value="video3" onclick="showSection('video3')">Video 3</li>
+      </ul>
+    </div> |
+    <a href="#" onclick="showSection('section2')">Section 2</a> |
+    <a href="#" onclick="showSection('section3')">Section 3</a>
+  </nav>
