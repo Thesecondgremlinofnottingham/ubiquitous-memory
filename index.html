@@ -8,71 +8,75 @@
   <style>
     body {
       background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
     }
 
    .dropdown {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: #f9f9f9;
-      padding: 10px;
-      border: 1px solid #ccc;
+      position: relative;
+      display: inline-block;
     }
 
-   .dropdown select {
-      margin-right: 10px;
+   .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+   .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+   .dropdown-content a:hover {
+      background-color: #f1f1f1
+    }
+
+   .show {
+      display: block;
     }
   </style>
 </head>
 <body>
-  <div class="dropdown">
-    <select id="section-dropdown">
-      <option value="">Select a section</option>
-      <option value="section1">Section 1</option>
-      <option value="section2">Section 2</option>
-      <option value="section3">Section 3</option>
-      <option value="section4">Section 4</option>
-    </select>
 
-    <select id="iframe-dropdown">
-      <option value="">Select an iframe</option>
-      <option value="iframe1">Iframe 1</option>
-      <option value="iframe2">Iframe 2</option>
-      <option value="iframe3">Iframe 3</option>
-      <option value="iframe4">Iframe 4</option>
-    </select>
+<div class="dropdown">
+  <button onclick="showDropdown('dropdown1')" class="dropbtn">Dropdown 1</button>
+  <div id="dropdown1" class="dropdown-content">
+    <a href="#section1">Section 1</a>
+    <a href="#section2">Section 2</a>
+    <a href="#section3">Section 3</a>
+    <a href="#section4">Section 4</a>
   </div>
+</div>
 
-  <iframe id="iframe" src="https://www.youtube.com/embed/sH5ohcGnRm0" style="border:none;" height="100" width="100" title="Youtube but in a small box"></iframe>
+<div class="dropdown">
+  <button onclick="showDropdown('dropdown2')" class="dropbtn">Dropdown 2</button>
+  <div id="dropdown2" class="dropdown-content">
+    <a href="#section1">Section 1</a>
+    <a href="#section2">Section 2</a>
+    <a href="#section3">Section 3</a>
+    <a href="#section4">Section 4</a>
+  </div>
+</div>
 
-  <script>
-    // Update the iframe source based on the selected option
-    document.getElementById('iframe-dropdown').addEventListener('change', function() {
-      var iframe = document.getElementById('iframe');
-      iframe.src = this.value;
-    });
+<script>
+  function showDropdown(id) {
+    var dropdown = document.getElementById(id);
+    if (dropdown.classList.contains('show')) {
+      dropdown.classList.remove('show');
+    } else {
+      dropdown.classList.add('show');
+    }
+  }
+</script>
 
-    // Update the iframe source based on the selected section
-    document.getElementById('section-dropdown').addEventListener('change', function() {
-      var iframe = document.getElementById('iframe');
-      switch (this.value) {
-        case 'section1':
-          iframe.src = 'https://www.example.com/section1';
-          break;
-        case 'section2':
-          iframe.src = 'https://www.example.com/section2';
-          break;
-        case 'section3':
-          iframe.src = 'https://www.example.com/section3';
-          break;
-        case 'section4':
-          iframe.src = 'https://www.example.com/section4';
-          break;
-        default:
-          iframe.src = 'https://www.youtube.com/embed/sH5ohcGnRm0';
-      }
-    });
-  </script>
 </body>
 </html>
